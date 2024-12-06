@@ -1,12 +1,17 @@
 from flask import Flask
 from db import db
 from routes.process_url_routes import process_url_routes
+from flask_mail import Mail
 
 app = Flask(__name__)
 app.config.from_object("config.Config")
 
 # Initialize database
 db.init_app(app)
+
+# Initialize mail service
+mail = Mail()
+mail.init_app(app)
 
 # Register blueprints
 app.register_blueprint(process_url_routes)
