@@ -2,9 +2,12 @@ import schedule
 import time
 import requests
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
 # URL API Call
-URL = "http://127.0.0.1:5000/processUrl?url=https://www.idealista.com/alquiler-viviendas/barcelona/horta-guinardo/?ordenado-por=fecha-publicacion-desc"
+load_dotenv()
+URL = os.getenv("URL_IDEALISTA")
 
 def execute_process():
     try:

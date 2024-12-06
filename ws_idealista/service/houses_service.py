@@ -1,8 +1,7 @@
 from model.houses import Houses
 from service.scraping_service import scrape_houses_from_url
-from db import db
+from extensions import db, mail
 from flask_mail import Message
-from app import mail
 import os
 
 def get_houses():
