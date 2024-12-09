@@ -17,7 +17,5 @@ def processURL():
             "status": 200, 
             "content": new_houses
             }), 200
-        #TODO: When there is a new id, 
-        # it is not in the last list, and it is not on the last position, do something
     except Exception as e:
         return jsonify({"error" : "Generic error during web scraping: " + str({e})}), 500
