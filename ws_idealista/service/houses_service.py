@@ -36,7 +36,7 @@ def process_houses(url):
     if new_houses:
         new_houses_with_url = [f"Nou pis! URL: https://www.idealista.com/inmueble/{house_id}" for house_id in new_houses]
         email_body = "\n".join(new_houses_with_url)
-        send_email(os.getenv("MAIL_DEFAULT_SENDER"), "Nous pisos disponibles Einsteve", email_body)
+        send_email(os.getenv("MAIL_DEFAULT_SENDER"), os.getenv("MAIL_SUBJECT"), email_body)
     else:
         new_houses_with_url = f"No hi ha cap pis nou :("
 
