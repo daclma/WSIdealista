@@ -10,6 +10,8 @@ setup(
         "beatifulsoup4",
         "lxml",
         "requests",
-        "schedule"
+        "schedule",
+        "Flask-Mail",
+        "python-dotenv"
     ]
 )
