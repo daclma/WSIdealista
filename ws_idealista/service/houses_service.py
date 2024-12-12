@@ -1,7 +1,7 @@
 from model.houses import Houses
 from service.scraping_service import scrape_houses_from_url
-from extensions import db, mail
-from flask_mail import Message
+from extensions import db
+from service.email_service import send_email
 import os
 
 def get_houses():
@@ -34,15 +34,10 @@ def process_houses(url):
     update_new_houses(houses_ids)
 
     if new_houses:
-        new_houses_with_url = [f"Nou pis! URL: https://www.idealista.com/inmueble/{house_id}" for house_id in new_houses]
+        new_houses_with_url = [f"{os.getenv("MAIL_BODY")}{house_id}" for house_id in new_houses]
         email_body = "\n".join(new_houses_with_url)
-        send_email(os.getenv("MAIL_DEFAULT_SENDER"), os.getenv("MAIL_SUBJECT"), email_body)
+        send_email(os.getenv("MAIL_DEFAULT_RECEIVER"), os.getenv("MAIL_SUBJECT"), email_body)
     else:
         new_houses_with_url = f"No hi ha cap pis nou :("
 
     return new_houses_with_url
-
-def send_email(recipient, subject, body):
-    msg = Message(subject, recipients=[recipient])
-    msg.body = body
-    mail.send(msg)

@@ -3,7 +3,6 @@ from service.houses_service import get_houses, clean_houses, update_new_houses, 
 
 process_url_routes = Blueprint("process_url_routes", __name__)
 
-#Example URL: https://www.idealista.com/alquiler-viviendas/barcelona/horta-guinardo/?ordenado-por=fecha-publicacion-desc
 @process_url_routes.route("/processUrl", methods=["GET"])
 def processURL():
     try:

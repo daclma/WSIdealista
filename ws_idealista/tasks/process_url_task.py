@@ -2,11 +2,9 @@ import schedule
 import time
 import requests
 from datetime import datetime
-from dotenv import load_dotenv
 import os
 
 # URL API Call
-load_dotenv()
 URL = os.getenv("URL_IDEALISTA")
 
 def execute_process():

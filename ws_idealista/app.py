@@ -1,10 +1,11 @@
+from config import Config
 from flask import Flask
 from routes.process_url_routes import process_url_routes
 from flask_mail import Mail
 from extensions import db, mail
 
 app = Flask(__name__)
-app.config.from_object("config.Config")
+app.config.from_object(Config)
 
 # Initialize database
 db.init_app(app)
