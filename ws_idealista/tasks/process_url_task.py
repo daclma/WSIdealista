@@ -3,6 +3,9 @@ import time
 import requests
 from datetime import datetime
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # URL API Call
 URL = os.getenv("URL_IDEALISTA")
